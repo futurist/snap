@@ -16,10 +16,11 @@ namespace snap
         string capFolder = @"data\";
         string newName;
         StringBuilder strOut = new StringBuilder();
+        bool isReplay = false;
 
-        public Class1()
+        public Class1(bool _isReplay)
         {
-
+            isReplay = _isReplay;
 
             if (!Directory.Exists(Path.GetDirectoryName(capFolder)))
             {
@@ -45,7 +46,19 @@ namespace snap
             newName = index.ToString().PadLeft(3, '0');
             Console.WriteLine(newName);
 
-            startCap(newName + ".png");
+            string coordFile = capFolder + newName + ".txt";
+            if (File.Exists(coordFile))
+            {
+                isReplay = true;
+                string args = "-c " + File.ReadAllText(coordFile) + " " + capFolder + newName + ".png";
+                Console.WriteLine(args);
+                runExe(args, "boxcutter.exe", waitForSnap, strOut);
+            }
+            else
+            {
+                isReplay = false;
+                startCap(newName + ".png");
+            }
 
         }
 
@@ -60,7 +73,11 @@ namespace snap
 
             MatchCollection matches = Regex.Matches(str.Split('\n').First(), @"\d+");
 
-            if (!str.Contains("coords:") || matches.Count < 4) Application.Exit();
+            if (isReplay || !str.Contains("coords:") || matches.Count < 4)
+            {
+                Application.Exit();
+                return;
+            }
 
             string result = "";
             for (int i = 0; i < 4; i++)

@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 10.00
 # Visual Studio 2008
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "snap", "snap.csproj", "{9C580F6F-3C36-428D-89B0-F0F4420DEBBD}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "snap", "snap.csproj", "{C0340D2A-DFC0-4D54-B192-1A10414C1AFB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -9,10 +9,10 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{9C580F6F-3C36-428D-89B0-F0F4420DEBBD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{9C580F6F-3C36-428D-89B0-F0F4420DEBBD}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{9C580F6F-3C36-428D-89B0-F0F4420DEBBD}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{9C580F6F-3C36-428D-89B0-F0F4420DEBBD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C0340D2A-DFC0-4D54-B192-1A10414C1AFB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C0340D2A-DFC0-4D54-B192-1A10414C1AFB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C0340D2A-DFC0-4D54-B192-1A10414C1AFB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C0340D2A-DFC0-4D54-B192-1A10414C1AFB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

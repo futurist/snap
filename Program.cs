@@ -13,9 +13,10 @@ namespace snap
         [STAThread]
         static void Main()
         {
-
-            new Class1();
-            Application.Run();
+            Application.EnableVisualStyles();
+            Application.SetCompatibleTextRenderingDefault(false);
+            Form1 f = new Form1();
+            Application.Run(f);
         }
     }
 }

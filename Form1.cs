@@ -19,33 +19,28 @@ namespace snap
 
         protected override void OnLoad(EventArgs e)
         {
+            Visible = false; // Hide form window.
+            ShowInTaskbar = false; // Remove from taskbar.
+
             base.OnLoad(e);
             this.FormBorderStyle = FormBorderStyle.None;
         }
 
-        bool isReplay = false;
+        Class1 player = null;
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            Process[] processes = Process.GetProcessesByName(@"ppp.exe");
 
-            isReplay = processes.Length == 0;
-            if (isReplay)
-            {
-                // it's in replay mode
-            }
-            else
-            {
-                this.Hide();
-                new Class1(false);
-            }
+            this.Hide();
+            player = new Class1(this);
+
         }
 
         private void Form1_MouseUp(object sender, MouseEventArgs e)
         {
             Console.WriteLine(33333333333);
             this.Hide();
-            new Class1(true);
+            player.startCap2();
         }
     }
 }

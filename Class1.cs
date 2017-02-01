@@ -15,12 +15,14 @@ namespace snap
 
         string capFolder = @"data\";
         string newName;
+        string coordFile;
         StringBuilder strOut = new StringBuilder();
         bool isReplay = false;
+        Form1 form;
 
-        public Class1(bool _isReplay)
+        public Class1(Form1 _form)
         {
-            isReplay = _isReplay;
+            form = _form;
 
             if (!Directory.Exists(Path.GetDirectoryName(capFolder)))
             {
@@ -46,13 +48,14 @@ namespace snap
             newName = index.ToString().PadLeft(3, '0');
             Console.WriteLine(newName);
 
-            string coordFile = capFolder + newName + ".txt";
+            coordFile = capFolder + newName + ".txt";
             if (File.Exists(coordFile))
             {
                 isReplay = true;
-                string args = "-c " + File.ReadAllText(coordFile) + " " + capFolder + newName + ".png";
-                Console.WriteLine(args);
-                runExe(args, "boxcutter.exe", waitForSnap, strOut);
+                form.Visible = true;
+                form.Show();
+
+                // wait for mouseUp event to call startCap2
             }
             else
             {
@@ -60,6 +63,13 @@ namespace snap
                 startCap(newName + ".png");
             }
 
+        }
+
+        public void startCap2()
+        {
+            string args = "-c " + File.ReadAllText(coordFile) + " " + capFolder + newName + ".png";
+            Console.WriteLine(args);
+            runExe(args, "boxcutter.exe", waitForSnap, strOut);
         }
 
         void startCap(string name)
